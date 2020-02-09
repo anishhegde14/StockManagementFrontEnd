@@ -1,0 +1,29 @@
+<div class="first">
+    <div class="col-md-3 float-left mt-3 container"
+    >
+
+        <div class="card">
+            <img src="https://pixabay.com/static/img/profile_image_dummy.svg"
+                style="width:100% ;height:1%">
+
+            <h4>Name : {{manager.managerName}}</h4>
+            <p class="title"></p>
+            <div class="card-body">
+
+                <p class="card-text">Manager Id : {{manager.id}}</p>
+                <p class="card-text">CompanyName : {{manager.companyName}}</p>
+                <p class="card-text">Company Id : {{manager.companyId}}</p>
+                <p class="card-text">Email Id : {{manager.emailId}}</p>
+                <p class="card-text">Address : {{manager.address}}</p>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group col-md-8">
+                    <button class="btn btn-outline-success" (click)='modifyManager(manager)'>
+                        Update
+                    </button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

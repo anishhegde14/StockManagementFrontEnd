@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Cabin|Heebo|PT+Serif&display=swap");
+
+.first{
+    background-image: url("https://cdn.pixabay.com/photo/2017/02/22/14/18/business-2089533__340.jpg");
+    height: 800px;
+    width: 100%;
+    background-size: cover;
+    padding-top: 30px;
+   }
+   
+   th{
+       background-color: lightseagreen;
+       font-size: 20px;
+       font-family: 'Nunito', sans-serif;
+   }
+   tr {
+    background-color: lightgrey;
+    font-family: 'Nunito', sans-serif;
+   }
+   
+   table {
+    background-color:  lightsteelblue;
+   }

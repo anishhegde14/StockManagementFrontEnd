@@ -1,0 +1,34 @@
+<div class="first">
+    <div class="col-md-3 float-left mt-3 container"
+     *ngFor='let company of companies'>
+
+        <div class="card">
+            <img src= {{company.logo}}
+                style="width:100% ;height:1%">
+
+            <h4>Name : {{company.companyName}}</h4>
+            <p class="title"></p>
+            <div class="card-body">
+
+                <p class="card-text">CompanyId : {{company.companyId}}</p>
+                <p class="card-text">CompanyWebsite : {{company.companyWebsite}}</p>
+                <p class="card-text">Head Quarters : {{company.headQuarters}}</p>
+                <p class="card-text">MaxStock : {{company.maxStock}}</p>
+                <p class="card-text">Revenue : {{company.revenue}}</p>
+                <p class="card-text">Volume : {{company.volume}}</p>
+                <!-- <p class="card-text">Logo :</p> -->
+                <p class="card-text">Industry : {{company.industry}}</p>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group col-md-8">
+                    <button class="btn btn-outline-success" (click)='modifyCompany(company)'>
+                        Update
+                    </button>
+                    <button class="btn btn-outline-dark" (click)='deleteCompany(company)'>
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

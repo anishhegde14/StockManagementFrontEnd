@@ -1,0 +1,162 @@
+<div class="alert alert-sucess" *ngIf='sucess'>{{sucess}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+
+<div class="first">
+    <div class="col-md-4 offset-md-4 mt-4">
+        <form #UpdateStock='ngForm' (ngSubmit)='modifyStock(UpdateStock)'>
+            <div class="card ">
+                <div class="card-header">
+                    Update Stock Details
+                </div>
+
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label for="id">Stock Id</label>
+                        <input type="hidden" name="id" id="id" #id='ngModel' ngModel
+                        [(ngModel)]="stockId1"
+                            class="form-control" required placeholder="Enter StockIdId" pattern="[0-9][0-9]*"
+                            minlength="2" maxlength="20">
+                        <div *ngIf='id.touched && id.invalid'>
+                            <div class="alert alert-danger" *ngIf='id.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='id.errors.minlength'>
+                                *minimum 2 digit required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='id.errors.pattern'>
+                                *Id allows numbers only
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyId">Company Id</label>
+                        <input type="text" name="companyId" id="companyId" #companyId='ngModel' ngModel
+                        [(ngModel)]="companyId1"
+                            class="form-control" required placeholder="Enter companyId" pattern="[0-9][0-9]*"
+                            minlength="2" maxlength="20">
+                        <div *ngIf='companyId.touched && companyId.invalid'>
+                            <div class="alert alert-danger" *ngIf='companyId.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='companyId.errors.minlength'>
+                                *minimum 2 digit required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='companyId.errors.pattern'>
+                                *Id allows numbers only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="companyName">Company Name</label>
+                        <input type="text" name="companyName" id="companyName" #companyName='ngModel' ngModel
+                            class="form-control" required placeholder="Enter companyName"   [(ngModel)]="companyName1"
+                            pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$">
+                        <div *ngIf='companyName.touched && companyName.invalid'>
+                            <div class="alert alert-danger" *ngIf='companyName.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='companyName.errors.pattern'>
+                                *Name allows alphabets only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="highPrice">HighPrice</label>
+                        <input type="text" name="highPrice" id="highPrice" #highPrice='ngModel' ngModel
+                        [(ngModel)]="highPrice1"
+                            class="form-control" required placeholder="Enter HighPrice" pattern="[0-9][0-9]*"
+                            minlength="2" maxlength="20">
+                        <div *ngIf='highPrice.touched && highPrice.invalid'>
+                            <div class="alert alert-danger" *ngIf='highPrice.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='highPrice.errors.minlength'>
+                                *minimum 2 digit required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='highPrice.errors.pattern'>
+                                *Price allows numbers only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="lowPrice">LowPrice</label>
+                        <input type="text" name="lowPrice" id="lowPrice" #lowPrice='ngModel' ngModel
+                            class="form-control" required placeholder="Enter lowPrice" pattern="[0-9][0-9]*"
+                            [(ngModel)]="lowPrice1"  minlength="2" maxlength="20">
+                        <div *ngIf='lowPrice.touched && lowPrice.invalid'>
+                            <div class="alert alert-danger" *ngIf='lowPrice.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='lowPrice.errors.minlength'>
+                                *minimum 2 digit required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='lowPrice.errors.pattern'>
+                                *Price allows numbers only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentPrice">Current Price</label>
+                        <input type="text" name="currentPrice" id="currentPrice" #currentPrice='ngModel' ngModel
+                        [(ngModel)]="currentPrice1"
+                            class="form-control" required placeholder="Enter currentPrice" pattern="[0-9][0-9]*"
+                            minlength="1" maxlength="20">
+                        <div *ngIf='currentPrice.touched && currentPrice.invalid'>
+                            <div class="alert alert-danger" *ngIf='currentPrice.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='currentPrice.errors.minlength'>
+                                *minimum 2 digit required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='currentPrice.errors.pattern'>
+                                *Price allows numbers only
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="volume">Volume</label>
+                        <input type="text" name="volume" id="volume" #volume='ngModel' ngModel class="form-control"
+                        [(ngModel)]="volume1"  required placeholder="Enter volume" pattern="[0-9][0-9]*" minlength="2" maxlength="20">
+                        <div *ngIf='volume.touched && volume.invalid'>
+                            <div class="alert alert-danger" *ngIf='volume.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='volume.errors.minlength'>
+                                *minimum 2 digit required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='volume.errors.pattern'>
+                                *Volume allows numbers only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="availableStocks">Available Stocks</label>
+                        <input type="text" name="availableStocks" id="availableStocks" #availableStocks='ngModel'
+                            ngModel  [(ngModel)]="availableStocks1" class="form-control" required placeholder="Enter availableStocks"
+                            pattern="[0-9][0-9]*" minlength="2" maxlength="20">
+                        <div *ngIf='availableStocks.touched && availableStocks.invalid'>
+                            <div class="alert alert-danger" *ngIf='availableStocks.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='availableStocks.errors.minlength'>
+                                *minimum 2 digit required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='availableStocks.errors.pattern'>
+                                *Stocks allows numbers only
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary float-right">ModifyStockDetails</button>
+                    <button type="reset" class="btn btn-secondary btn-md">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

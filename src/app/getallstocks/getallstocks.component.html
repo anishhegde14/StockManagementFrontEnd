@@ -1,0 +1,42 @@
+<div class="alert alert-success" *ngIf='success'>{{success}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+
+<div class="first">
+    <div class="container mt-3">
+        <table class="table table-bordered table-hover">
+            <thead class="bg-info">
+                <tr>
+                    <th>Stock Id</th>
+                    <th>Company Id</th>
+                    <th>Company Name</th>
+                    <th>High Price</th>
+                    <th>Low Price</th>
+                    <th>Current Price</th>
+                    <th>Volume</th>
+                    <th>Available Stock</th>
+                    <th>Buy</th>
+                   
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor='let stock of stocks'>
+                    <td>{{stock.id}}</td>
+                    <td>{{stock.companyId}}</td>
+                    <td>{{stock.companyName}}</td>
+                    <td>{{stock.highPrice}}</td>
+                    <td>{{stock.lowPrice}}</td>
+                    <td>{{stock.currentPrice}}</td>
+                    <td>{{stock.volume}}</td>
+                    <td>{{stock.availableStocks}}</td>
+
+                    <td><button   class="btn btn-outline-primary" (click)='buyStock(stock)'>Buy</button></td>
+
+                    
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

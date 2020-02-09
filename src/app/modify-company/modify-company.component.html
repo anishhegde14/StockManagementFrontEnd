@@ -1,0 +1,169 @@
+<div class="alert alert-sucess" *ngIf='sucess'>{{sucess}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+
+<div class="first">
+    <div class="col-md-4 offset-md-4 mt-4">
+        <form #ModifyCompany='ngForm' (ngSubmit)='modifyCompany(ModifyCompany)'>
+            <div class="card ">
+                <div class="card-header">
+                    Modify Company Details
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group" hidden>
+                        <label for="companyId">Company Id</label>
+                        <input type="text" name="companyId" id="companyId" #companyId='ngModel' ngModel
+                            [(ngModel)]='companyService.selectCompanyToUpdate.companyId' class="form-control" required
+                            placeholder="Enter companyId" pattern="[0-9][0-9]*" minlength="2" maxlength="20">
+                        <div *ngIf='companyId.touched && companyId.invalid'>
+                            <div class="alert alert-danger" *ngIf='companyId.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='companyId.errors.minlength'>
+                                *minimum 2 digits required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='companyId.errors.pattern'>
+                                *Company Id allows numbers only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="companyName">Company Name</label>
+                        <input type="text" name="companyName" id="companyName" #companyName='ngModel' ngModel
+                            [(ngModel)]='companyService.selectCompanyToUpdate.companyName' class="form-control" required
+                            placeholder="Enter companyName" pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="2"
+                            maxlength="20">
+                        <div *ngIf='companyName.touched && companyName.invalid'>
+                            <div class="alert alert-danger" *ngIf='companyName.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='companyName.errors.minlength'>
+                                *minimum 2 digits required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='companyName.errors.pattern'>
+                                *CompanyName allows alphabets only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="companyWebsite">Company Website</label>
+                        <input type="text" name="companyWebsite" id="companyWebsite" #companyWebsite='ngModel'
+                            ngModel [(ngModel)]='companyService.selectCompanyToUpdate.companyWebsite'
+                            class="form-control" required placeholder="Enter CompanyWebsite">
+                        <div *ngIf='companyWebsite.touched && companyWebsite.invalid'>
+                            <div class="alert alert-danger" *ngIf='companyWebsite.errors.required'>
+                                *This field is mandatory
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="headQuarters">Head Quarters</label>
+                        <input type="text" name="headQuarters" id="headQuarters" #headQuarters='ngModel' ngModel
+                            [(ngModel)]='companyService.selectCompanyToUpdate.headQuarters' class="form-control"
+                            required placeholder="Enter HeadQuarters " pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$">
+                        <div *ngIf='headQuarters.touched && headQuarters.invalid'>
+                            <div class="alert alert-danger" *ngIf='headQuarters.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='headQuarters.errors.pattern'>
+                                *Head Quarters allows alphabets only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="maxStock">Maximum Stock</label>
+                        <input type="text" name="maxStock" id="maxStock" #maxStock='ngModel' ngModel
+                            [(ngModel)]='companyService.selectCompanyToUpdate.maxStock' class="form-control" required
+                            placeholder="Enter MaxStock" pattern="[0-9][0-9]*" minlength="2" maxlength="20">
+                        <div *ngIf='maxStock.touched && maxStock.invalid'>
+                            <div class="alert alert-danger" *ngIf='maxStock.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='maxStock.errors.minlength'>
+                                *minimum 2 digit required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='maxStock.errors.pattern'>
+                                *Stock allows numbers only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="revenue">Revenue</label>
+                        <input type="text" name="revenue" id="revenue" #revenue='ngModel' ngModel
+                            [(ngModel)]='companyService.selectCompanyToUpdate.revenue' class="form-control" required
+                            placeholder="Enter Revenue" pattern="[0-9][0-9]*" minlength="2" maxlength="20">
+                        <div *ngIf='revenue.touched && revenue.invalid'>
+                            <div class="alert alert-danger" *ngIf='revenue.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='revenue.errors.minlength'>
+                                *minimum 2 digits required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='revenue.errors.pattern'>
+                                *Revenue allows numbers only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="volume">Volume</label>
+                        <input type="text" name="volume" id="volume" #volume='ngModel' ngModel
+                            [(ngModel)]='companyService.selectCompanyToUpdate.volume' class="form-control" required
+                            placeholder="Enter volume" pattern="[0-9][0-9]*" minlength="2" maxlength="20">
+                        <div *ngIf='volume.touched && volume.invalid'>
+                            <div class="alert alert-danger" *ngIf='volume.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='volume.errors.minlength'>
+                                *minimum 2 digit required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='volume.errors.pattern'>
+                                *Volume allows numbers only
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group ">
+                        <label for="logo">Logo</label>
+                        <input type="text" name="logo" id="logo" #logo='ngModel' ngModel class="form-control" required
+                            [(ngModel)]='companyService.selectCompanyToUpdate.logo' placeholder="Enter logo"
+                            pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$">
+                        <div *ngIf='logo.touched && logo.invalid'>
+                            <div class="alert alert-danger" *ngIf='logo.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='logo.errors.pattern'>
+                                *logo allows alphabets only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="industry">Industry</label>
+                        <input type="text" name="industry" id="industry" #industry='ngModel' ngModel
+                            class="form-control" required [(ngModel)]='companyService.selectCompanyToUpdate.industry'
+                            placeholder="Enter Industry" pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$">
+                        <div *ngIf='industry.touched && industry.invalid'>
+                            <div class="alert alert-danger" *ngIf='industry.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='industry.errors.pattern'>
+                                *Industry field allows alphabets only
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary float-right">Modify Company Details</button>
+                    <button type="reset" class="btn btn-dark btn-md">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

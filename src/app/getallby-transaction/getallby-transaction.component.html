@@ -1,0 +1,30 @@
+<div class="alert alert-success" *ngIf='success'>{{success}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+
+<div class="first">
+    <div class="container mt-3">
+        <table class="table table-bordered table-hover">
+            <thead class="bg-info">
+                <tr>
+                    <th>Transaction Id</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Company Id</th>
+                    <th>Investor Id</th>
+                    <th>No of shares</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor='let transaction of transactions'>
+                    <td>transaction.transactionId</td>
+                    <td>transaction.amount</td>
+                    <td>transaction.date</td>
+                    <td>transaction.companyId</td>
+                    <td>transaction.investorId</td>
+                    <td>transaction.noOfShares</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

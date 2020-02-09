@@ -1,0 +1,92 @@
+<div class="first">
+    <mat-accordion class="example-headers-align">
+        <form #login='ngForm' (ngSubmit)='loginInfo(login,investor)'>
+            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="second">
+                        Investor Details
+                    </mat-panel-title>
+                    <mat-panel-description class="third">
+                        Type your email and password
+                        <mat-icon>account_circle</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <mat-form-field>
+                    <input matInput name="emailId" id="emailId" #emailId='ngModel' ngModel placeholder="Email Id"
+                        required
+                        pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
+                    <div *ngIf='emailId.touched && emailId.invalid'>
+                        <div class="alert alert-danger" *ngIf='emailId.errors.required'>
+                            *This feild is mandatory
+                        </div>
+                        <div class="alert alert-danger" *ngIf='emailId.errors.pattern'>
+                            *Enter pattern value only (abc@**.com)
+                        </div>
+                    </div>
+                </mat-form-field> <br>
+
+                <mat-form-field>
+                    <input matInput name="password" id="password" #password='ngModel' ngModel type="password" required
+                        minlength="8" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}"
+                        placeholder="Password">
+                    <div *ngIf='password.touched && password.invalid'>
+                        <div class="alert alert-danger" *ngIf='password.errors.required'>
+                            *Field is mandatory
+                        </div>
+                        <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+                            *should contain minimum one Capital letter,
+                            one small letter,one number,
+                            one special character and
+                            minimum eight digits
+                        </div>
+                    </div>
+                </mat-form-field>
+
+                <mat-action-row>
+                    <button mat-button color="primary" (click)="nextStep()">Next</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        </form>
+
+        <form #investor='ngForm' >
+            <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-description class="fourth">
+                        Enter the Investor details
+                        <mat-icon>map</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <mat-form-field>
+                    <input matInput name="investorName" id="investorName" #investorName='ngModel' ngModel
+                        placeholder="Investor Name" required pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="3"
+                        maxlength="20">
+                    <div *ngIf='investorName.touched && investorName.invalid'>
+                        <div class="alert alert-danger" *ngIf='investorName.errors.required'>
+                            *This feild is mandatory
+                        </div>
+                        <div class="alert alert-danger" *ngIf='investorName.errors.minlength'>
+                            *minimum 3 letters are required
+                        </div>
+                        <div class="alert alert-danger" *ngIf='investorName.errors.maxlength'>
+                            *maximum 20 letters are allowed
+                        </div>
+                        <div class="alert alert-danger" *ngIf='investorName.errors.pattern'>
+                            *Name accepts alphabets only
+                        </div>
+                    </div>
+                </mat-form-field> <br>
+
+                <mat-form-field>
+                    <input matInput required name="url" id="url" #url='ngModel' ngModel placeholder="Url">
+                </mat-form-field>
+
+                <mat-action-row>
+                    <button mat-button color="warn" (click)="prevStep()">Previous</button>
+                    <button mat-button color="primary" type="submit">Submit</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        </form>
+    </mat-accordion>
+</div>

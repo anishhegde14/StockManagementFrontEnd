@@ -1,0 +1,31 @@
+<div class="first">
+    <div class="col-md-3 float-left mt-3 container"
+     >
+
+        <div class="card">
+            <img src="https://pixabay.com/static/img/profile_image_dummy.svg"
+            style="width:100% ;height:1%">
+
+            <h4>Name : {{investor.investorName}}</h4>
+            <p class="title"></p>
+            <div class="card-body">
+
+                <p class="card-text">InvestorId : {{investor.id}}</p>
+                <p class="card-text">emailId : {{investor.emailId}}</p>
+                <p class="card-text">Url : {{investor.url}}</p>
+                <p class="card-text">MaxInvest : {{investor.maxInvest}}</p>
+                
+            </div>
+            <div class="card-footer">
+                <div class="btn-group col-md-8">
+                    <button class="btn btn-outline-success" (click)='modifyInvestor(investor)'>
+                        Update
+                    </button>
+                    <button class="btn btn-outline-dark" (click)='deleteInvestor(investor)'>
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Cabin|Heebo&display=swap");
+
+.first{
+    background-image: url("https://cdn.pixabay.com/photo/2016/04/20/08/21/entrepreneur-1340649__340.jpg");
+    background-size: cover;
+    padding: 20px;
+    font-family: 'Cabin', sans-serif;
+    height: 100%;
+}
+
+.card-body {
+    background-color: rgb(219, 214, 214);
+}
+
+label{
+    font-size: 20px;
+}
+
+.card-header {
+    font-size: 20px;
+}

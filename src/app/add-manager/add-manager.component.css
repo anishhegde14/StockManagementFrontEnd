@@ -1,0 +1,51 @@
+
+@import url("https://fonts.googleapis.com/css?family=Cabin|Heebo&display=swap");
+
+.example-headers-align .mat-expansion-panel-header-title
+{
+  flex-basis: 0px;
+  padding: 100px; 
+  font-size: 25px;
+}
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+  font-size: 20px;
+  font-family: 'Cabin', sans-serif;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-family: 'Cabin', sans-serif;
+}
+
+mat-form-field {
+  margin-right: 12px;
+  font-size: 20px;
+  font-family: 'Cabin', sans-serif;
+}
+
+button{
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+}
+
+.first{
+  background-image: url("https://cdn.pixabay.com/photo/2016/04/20/08/21/entrepreneur-1340649__340.jpg");
+  height: 90%;
+  width: 100%;
+  padding: 40px;
+  background-size: cover;
+ }
+
+.second{
+  font-weight: bolder;
+  color: midnightblue;
+}
+.third{
+  color: rgb(83, 141, 122);
+}
+.fourth{
+  color: rgb(83, 141, 122);
+}

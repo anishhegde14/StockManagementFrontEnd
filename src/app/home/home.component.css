@@ -1,0 +1,91 @@
+.banner-area {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 150%;
+}
+
+ .card {
+    transition: 0.3s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #c3f8fa2c;
+  }
+
+  .card-deck {
+  transition: 0.3s;
+  text-decoration: none; 
+  font-size: 20px;
+  color: black; 
+  border-radius: 0 5px 5px 0;
+  }
+
+.card:hover {
+   background-color: rgb(112, 192, 245);
+   color: white;
+}
+  
+.content, .container {
+    font-style: italic;
+    font-family: 'Gelasio', serif;
+}
+
+.col-md-6, .item {
+    float: right;
+    display: flex;
+  align-items: flex-end;
+  
+}
+
+.about {
+    padding-left: 500px;
+}
+
+.footer-bottom {
+    padding-left: 50px;
+}
+
+.banner-area, .text-small {
+    text-decoration-color: black;
+}
+
+  header {
+    position: relative;
+    background-color: black;
+    height: 75vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  header video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  header .content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+  }

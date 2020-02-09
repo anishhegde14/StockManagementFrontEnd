@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Cabin|Heebo&display=swap");
+
+.first{
+    background-image: url("https://pixabay.com/get/53e4d14a4f54b114b2d98075cf20357c1322dfe05b5179407c2d7dd0/dollar-544956.jpg");
+    background-size: cover;
+    padding: 20px;
+    font-family: 'Cabin', sans-serif;
+    height: 100%;
+}
+
+.card-body {
+    background-color: rgb(219, 214, 214);
+}
+
+label{
+    font-size: 20px;
+}
+
+.card-header {
+    font-size: 20px;
+}

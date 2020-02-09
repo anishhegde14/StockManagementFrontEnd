@@ -1,0 +1,121 @@
+<div class="alert alert-sucess" *ngIf='sucess'>{{sucess}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+
+<div class="first">
+    <div class="col-md-4 offset-md-4 mt-4">
+        <form #AddManager='ngForm' (ngSubmit)='addManager(AddManager)'>
+            <div class="card ">
+                <div class="card-header">
+                    Add Manager Details
+                </div>
+
+                <div class="card-body">
+                   
+                    <div class="form-group ">
+                        <label for="managerName">Manager Name</label>
+                        <input type="text" name="managerName" id="managerName" #managerName='ngModel' ngModel
+                            class="form-control" required placeholder="Enter managerName"
+                            pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="2" maxlength="20">
+                        <div *ngIf='managerName.touched && managerName.invalid'>
+                            <div class="alert alert-danger" *ngIf='managerName.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='managerName.errors.minlength'>
+                                *minimum 2 digits required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='managerName.errors.pattern'>
+                                *managerName allows alphabets only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="companyName">Company Name</label>
+                        <input type="text" name="companyName" id="companyName" #companyName='ngModel' ngModel
+                            class="form-control" required placeholder="Enter companyName"
+                            pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="2" maxlength="20">
+                        <div *ngIf='companyName.touched && companyName.invalid'>
+                            <div class="alert alert-danger" *ngIf='companyName.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='companyName.errors.minlength'>
+                                *minimum 2 digits required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='companyName.errors.pattern'>
+                                *CompanyName allows alphabets only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="companyId">Company Id</label>
+                        <input type="text" name="companyId" id="companyId" #companyId='ngModel' ngModel
+                            class="form-control" required placeholder="Enter CompanyId" pattern="[0-9][0-9]*"
+                            minlength="2" maxlength="20">
+                        <div *ngIf='companyId.touched && companyId.invalid'>
+                            <div class="alert alert-danger" *ngIf='companyId.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='companyId.errors.minlength'>
+                                *minimum 2 digits required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='companyId.errors.pattern'>
+                                *Company Id allows numbers only
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
+                    <div class="form-group">
+                        <label for="emailId">emailId</label>
+                        <input type="text" name="emailId" id="emailId" #emailId='ngModel' ngModel class="form-control"
+                            required placeholder="Enter emailId" 
+                            pattern="^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$" >
+                        <div *ngIf='emailId.touched && emailId.invalid'>
+                            <div class="alert alert-danger" *ngIf='emailId.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            
+                            <div class="alert alert-danger" *ngIf='emailId.errors.pattern'>
+                                *Enter the correct pattern
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group ">
+                        <label for="address">address</label>
+                        <input type="text" name="address" id="address" #address='ngModel' ngModel class="form-control" required
+                            placeholder="Enter address" >
+                        <div *ngIf='address.touched && address.invalid'>
+                            <div class="alert alert-danger" *ngIf='address.errors.required'>
+                                *This field is mandatory
+                            </div>   
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="text" name="password" id="password" #password='ngModel' ngModel
+                            class="form-control" required placeholder="Enter password" pattern="(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[$@$!%?&])[A-Za-z\d$@$!%?&].{7,}"
+                           >
+                        <div *ngIf='password.touched && password.invalid'>
+                            <div class="alert alert-danger" *ngIf='password.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            
+                            <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+                                *password Id allows numbers only
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    <button type="submit"  class="btn btn-primary float-right">Add Manager Details</button>
+                    <button type="reset" class="btn btn-dark btn-md">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,135 @@
+<div class="alert alert-sucess" *ngIf='sucess'>{{sucess}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+
+
+
+<div class="first">
+  <mat-accordion class="example-headers-align">
+    <form #login='ngForm' (ngSubmit)='loginInfo(login)'>
+      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title class="second">
+            Manager Details
+          </mat-panel-title>
+          <mat-panel-description class="third">
+            Type your email and password
+            <mat-icon>account_circle</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+
+        <mat-form-field>
+          <input matInput name="emailId" id="emailId" #emailId='ngModel' ngModel placeholder="Email Id" required
+            pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
+          <div *ngIf='emailId.touched && emailId.invalid'>
+            <div class="alert alert-danger" *ngIf='emailId.errors.required'>
+              *This feild is mandatory
+            </div>
+            <div class="alert alert-danger" *ngIf='emailId.errors.pattern'>
+              *Enter pattern value only (abc@**.com)
+            </div>
+          </div>
+        </mat-form-field><br>
+
+        <mat-form-field>
+          <input matInput name="password" id="password" #password='ngModel' ngModel type="password" required
+            minlength="8" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}"
+            placeholder="Password">
+          <div *ngIf='password.touched && password.invalid'>
+            <div class="alert alert-danger" *ngIf='password.errors.required'>
+              *Field is mandatory
+            </div>
+            <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+              *should contain minimum one Capital letter,
+              one small letter,one number,
+              one special character and
+              minimum eight digits
+            </div>
+          </div>
+        </mat-form-field>
+
+        <mat-action-row>
+          <button mat-button color="primary" type="submit" (click)="nextStep()">Next</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </form>
+    <form #manager='ngForm' (ngSubmit)='managerInfo(manager)'>
+      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-description class="fourth">
+            Enter the Manager details
+            <mat-icon>map</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+          <input matInput name="managerName" id="managerName" #managerName='ngModel' ngModel placeholder="Manager Name"
+            required pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="3" maxlength="20">
+          <div *ngIf='managerName.touched && managerName.invalid'>
+            <div class="alert alert-danger" *ngIf='managerName.errors.required'>
+              *This feild is mandatory
+            </div>
+            <div class="alert alert-danger" *ngIf='managerName.errors.minlength'>
+              *minimum 3 letters are required
+            </div>
+            <div class="alert alert-danger" *ngIf='managerName.errors.maxlength'>
+              *maximum 20 letters are allowed
+            </div>
+            <div class="alert alert-danger" *ngIf='managerName.errors.pattern'>
+              *Name accepts alphabets only
+            </div>
+          </div>
+        </mat-form-field> <br>
+
+        <mat-form-field>
+          <input matInput name="companyName" id="companyName" #companyName='ngModel' ngModel placeholder="Company Name"
+            required pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="3" maxlength="20">
+          <div *ngIf='companyName.touched && companyName.invalid'>
+            <div class="alert alert-danger" *ngIf='companyName.errors.required'>
+              *This feild is mandatory
+            </div>
+            <div class="alert alert-danger" *ngIf='companyName.errors.minlength'>
+              *minimum 3 letters are required
+            </div>
+            <div class="alert alert-danger" *ngIf='companyName.errors.maxlength'>
+              *maximum 20 letters are allowed
+            </div>
+            <div class="alert alert-danger" *ngIf='companyName.errors.pattern'>
+              *Name accepts alphabets only
+            </div>
+          </div>
+        </mat-form-field> <br>
+
+        <mat-form-field>
+          <input matInput name="companyId" id="companyId" #companyId='ngModel' ngModel required placeholder="Company Id"
+            pattern="[1-9][0-9]*" minlength="2" maxlength="20">
+          <div *ngIf='companyId.touched && companyId.invalid'>
+            <div class="alert alert-danger" *ngIf='companyId.errors.required'>
+              *this field is mandatory
+            </div>
+            <div class="alert alert-danger" *ngIf='companyId.errors.minlength'>
+              *minimum 2 digits required
+            </div>
+            <div class="alert alert-danger" *ngIf='companyId.errors.pattern'>
+              *Id accepts numbers only
+            </div>
+          </div>
+        </mat-form-field> <br>
+
+        <mat-form-field>
+          <input matInput name="address" id="address" #address='ngModel' ngModel required placeholder="Address">
+          <div *ngIf='address.touched && address.invalid'>
+            <div class="alert alert-danger" *ngIf='address.errors.required'>
+              *this field is mandatory
+            </div>
+          </div>
+        </mat-form-field> <br>
+
+        <mat-action-row>
+          <button mat-button color="warn" (click)="prevStep()">Previous</button>
+          <button mat-button color="primary" type="submit" (click)="submit">Submit</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </form>
+  </mat-accordion>
+</div>

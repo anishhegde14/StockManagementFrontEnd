@@ -1,0 +1,100 @@
+<div class="alert alert-sucess" *ngIf='sucess'>{{sucess}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+
+<div class="first">
+    <div class="col-md-4 offset-md-4 mt-4">
+        <form #ModifyInvestor='ngForm' (ngSubmit)='modifyInvestor(ModifyInvestor)'>
+            <div class="card ">
+                <div class="card-header">
+                    Modify Investor Details
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group" hidden>
+                        <label for="id">Investor Id</label>
+                        <input type="hidden" name="id" id="id" #id='ngModel' ngModel class="form-control" required
+                            placeholder="Enter InvestorId" pattern="[0-9][0-9]*" minlength="1" maxlength="20"
+                            [(ngModel)]='id1'>
+                        <div *ngIf='id.touched && id.invalid'>
+                            <div class="alert alert-danger" *ngIf='id.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='id.errors.minlength'>
+                                *minimum 2 digits required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='id.errors.pattern'>
+                                *Company Id allows numbers only
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="investorName">Investor Name</label>
+                        <input type="text" name="investorName" id="investorName" #investorName='ngModel' ngModel
+                            class="form-control" required [(ngModel)]='investorName1'
+                            placeholder="Enter InvestorName" pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="2"
+                            maxlength="20">
+                        <div *ngIf='investorName.touched && investorName.invalid'>
+                            <div class="alert alert-danger" *ngIf='investorName.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='investorName.errors.minlength'>
+                                *minimum 2 digits required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='investorName.errors.pattern'>
+                                *InvestorName allows alphabets only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emailId">Email Id</label>
+                        <input type="text" name="emailId" id="emailId" #emailId='ngModel' placeholder="Enter email"
+                            class="form-control" [(ngModel)]='emailId1'
+                            pattern="^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$">
+                        <div *ngIf='emailId.touched && emailId.invalid'>
+                            <div class="alert alert-danger" *ngIf='emailId.errors.required'>
+                                *This feild is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='emailId.errors.pattern'>
+                                *Enter correct format only (abc@**.**)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="url">Url</label>
+                        <input type="text" name="url" id="url" #url='ngModel' ngModel [(ngModel)]='url1'
+                            class="form-control" required placeholder="Enter url">
+                        <div *ngIf='url.touched && url.invalid'>
+                            <div class="alert alert-danger" *ngIf='url.errors.required'>
+                                *This field is mandatory
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group" hidden>
+                        <label for="maxInvest">Maximum Invest</label>
+                        <input type="hidden" name="maxInvest" id="maxInvest" #maxInvest='ngModel' ngModel
+                            class="form-control" required placeholder="Enter MaxInvest"  [(ngModel)]='maxInvest1'
+                            pattern="[0-9][0-9]*" minlength="2" maxlength="20">
+                        <div *ngIf='maxInvest.touched && maxInvest.invalid'>
+                            <div class="alert alert-danger" *ngIf='maxInvest.errors.required'>
+                                *This field is mandatory
+                            </div>
+                            <div class="alert alert-danger" *ngIf='maxInvest.errors.minlength'>
+                                *minimum 2 digit required
+                            </div>
+                            <div class="alert alert-danger" *ngIf='maxInvest.errors.pattern'>
+                                *MaxInvest allows numbers only
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right">ModifyInvestor</button>
+                    <button type="reset" class="btn btn-dark btn-md">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
